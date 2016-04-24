@@ -242,27 +242,6 @@ public class StripeUtilities extends TestCase {
     	      ___changeSubscription(customer, subscription, newPlan);
     }
     
-    public void testAddFeeOnSubscriptions() throws AuthenticationException, InvalidRequestException, APIConnectionException, CardException, APIException{
-    	//Map<String, Object> params = new HashMap<String, Object>();
-    	//params.put("application_fee", 10);
-    	
-    	//existingSubscription.update(params);
-    	// Get the credit card details submitted by the form
-    	//String token = request.getParameter("tok_183pzHK22Kpb2KFRJ88HgRao");
-
-    	// Create the charge on Stripe's servers - this will charge the user's card
-    	Map<String, Object> chargeParams = new HashMap<String, Object>();
-    	chargeParams.put("amount", 1000); // amount in cents
-    	chargeParams.put("currency", "eur");
-    	
-    	chargeParams.put("source", "tok_183uCnK22Kpb2KFRWaAYCzzX");
-    	chargeParams.put("description", "Example charge");
-    	chargeParams.put("application_fee", 123); // amount in cents
-
-    	RequestOptions requestOptions = RequestOptions.builder().setStripeAccount("sk_test_2iJzVgtKmNLXVBCktxSpXS55").build();
-
-    	Charge charge = Charge.create(chargeParams, requestOptions);
-    }
     @Test
     public void testRefundCustomerCharge() throws AuthenticationException, InvalidRequestException, APIConnectionException, CardException, APIException{
     	Map<String, Object> refundParams = new HashMap<String, Object>();
