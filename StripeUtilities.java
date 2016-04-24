@@ -53,8 +53,6 @@ public class StripeUtilities extends TestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-
 	}
   
    
@@ -75,7 +73,6 @@ public class StripeUtilities extends TestCase {
          Customer customer = Customer.create(customerParams);
          return customer;
     }
-    
     
     
     @Test
@@ -100,9 +97,8 @@ public class StripeUtilities extends TestCase {
     	chargeParams.put("customer", customer.getId());
     	
            
-           	Charge charge = Charge.create(chargeParams);
-            
-           return charge;
+        Charge charge = Charge.create(chargeParams);
+        return charge;
     }
     
     @Test
@@ -242,6 +238,7 @@ public class StripeUtilities extends TestCase {
     	      ___changeSubscription(customer, subscription, newPlan);
     }
     
+   
     @Test
     public void testRefundCustomerCharge() throws AuthenticationException, InvalidRequestException, APIConnectionException, CardException, APIException{
     	Map<String, Object> refundParams = new HashMap<String, Object>();
@@ -293,5 +290,4 @@ public class StripeUtilities extends TestCase {
          
          assertNotNull(charge); //Junit
          System.out.format("Card successfully charged with id: %s and money: %d%s ",charge.getId(),charge.getAmount(),charge.getCurrency());    }
-    
     } 
